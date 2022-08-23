@@ -1,0 +1,16 @@
+.patch {
+  display: flex;
+  flex-direction: column;
+  background-color: #453412;
+  height: 550px;
+  width: 350px;
+  justify-content: center;
+  gap: 25px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}

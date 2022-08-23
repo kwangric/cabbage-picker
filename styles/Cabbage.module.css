@@ -1,0 +1,9 @@
+.preventSelect {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  opacity: 0;
+}
