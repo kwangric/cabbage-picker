@@ -4,7 +4,6 @@ import Image from 'next/image'
 import CabbageIcon from '../public/cabbage.png'
 import generatorListStyles from '../styles/GeneratorList.module.css'
 import { styled } from '@mui/material/styles'
-import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip'
@@ -74,7 +73,7 @@ const GeneratorList = () => {
                 }
                 placement="left"
               >
-                <Card
+                <div
                   className={generatorListStyles.generatorCard}
                   key={generator.id}
                 >
@@ -114,7 +113,7 @@ const GeneratorList = () => {
                     </div>
                   </div>
 
-                </Card>
+                </div>
               </HtmlTooltip>
             </div>
           )
