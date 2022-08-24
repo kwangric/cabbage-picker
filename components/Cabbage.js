@@ -11,7 +11,6 @@ const Cabbage = () => {
   const handleClick = () => {
     if (!clicked) {
       increaseCabbages(1)
-      console.log('clicked!')
       setClicked(true)
       setTimeout(function () {
         setClicked(false)

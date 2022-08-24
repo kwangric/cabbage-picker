@@ -1,10 +1,8 @@
-import {useContext} from 'react'
-import {GameContext} from '../context/GameContext'
+import { useContext } from 'react'
+import { GameContext } from '../context/GameContext'
 
 const CabbageCounter = () => {
-  const {cabbages, cabbagesPerSecond, gameInterval} = useContext(GameContext)
-
-  // setInterval(gameInterval, 1000)
+  const { cabbages, cabbagesPerSecond } = useContext(GameContext)
 
   return (
     <div>

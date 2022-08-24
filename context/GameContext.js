@@ -9,20 +9,23 @@ export const GameProvider = ({ children }) => {
   const [generators, setGenerators] = useState([])
 
   const increaseCabbages = (num) => {
-    setCabbages((cabbages + num))
-    checkGenerators()
+    setCabbages(cabbages + num)
+    checkGenerators(cabbages + num)
   }
 
-  const checkGenerators = () => {
-    setGenerators(
-      generators.map((generator) => {
-        if (generator.cost / 2 <= cabbages && generator.visible === false) {
-          return { ...generator, visible: true }
-        } else {
-          return { ...generator }
-        }
-      })
-    )
+  const checkGenerators = (total) => {
+    let change = false
+    const newGenerators = generators.map((generator) => {
+      if (generator.cost / 2 <= total && generator.visible === false) {
+        change = true
+        return { ...generator, visible: true }
+      } else {
+        return { ...generator }
+      }
+    })
+    if (change) {
+      setGenerators(newGenerators)
+    }
   }
 
   const buyGenerator = (id) => {
@@ -42,13 +45,25 @@ export const GameProvider = ({ children }) => {
     })
   }
 
-  const gameInterval = () => {
-    increaseCabbages(cabbagesPerSecond)
-  }
+  // const gameInterval = () => {
+  //   setInterval(() => {
+  //     setCabbages((currentCabbages) => currentCabbages + 1)
+  //   }, 1000)
+  // }
 
   useEffect(() => {
     setGenerators(startingGenerators)
   }, [])
+
+  useEffect(() => {
+    const gameInterval = setInterval(() => {
+      setCabbages((currentCabbages) => {
+        checkGenerators(currentCabbages + cabbagesPerSecond)
+        return currentCabbages + cabbagesPerSecond
+      })
+    }, 1000)
+    return () => clearInterval(gameInterval)
+  }, [cabbagesPerSecond, checkGenerators])
 
   return (
     <GameContext.Provider
@@ -59,7 +74,6 @@ export const GameProvider = ({ children }) => {
         generators,
         increaseCabbages,
         buyGenerator,
-        gameInterval
       }}
     >
       {children}
