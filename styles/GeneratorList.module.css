@@ -17,6 +17,15 @@
   border: none;
 }
 
+.generators {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.generators::-webkit-scrollbar {
+  display: none;
+}
+
 .generatorCard {
   width: 272px;
   margin: 0.5rem;

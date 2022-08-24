@@ -6,6 +6,7 @@ import generatorListStyles from '../styles/GeneratorList.module.css'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Switch from '@mui/material/Switch'
+import Box from '@mui/material/Box'
 
 const GeneratorList = () => {
   const [detailedView, setDetailedView] = useState(true)
@@ -23,7 +24,7 @@ const GeneratorList = () => {
           : `${generatorListStyles.container} ${generatorListStyles.hidden}`
       }
     >
-      <div>
+      <Box component="div" sx={{ overflow: 'scroll' }} className={generatorListStyles.generators}>
         {generators.map((generator) => {
           if (generator.visible) {
             return (
@@ -148,7 +149,7 @@ const GeneratorList = () => {
             )
           }
         })}
-      </div>
+      </Box>
       {generators.filter((generator) => generator.visible === true).length >
       0 ? (
         <div>
