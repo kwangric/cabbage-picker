@@ -2,7 +2,7 @@ export const generators = [
   {
     id: 1,
     name: 'Volunteer',
-    visible: true,
+    visible: false,
     quantity: 0,
     cost: 15,
     baseIncome: 0.1,

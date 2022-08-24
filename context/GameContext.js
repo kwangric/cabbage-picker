@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useState, useEffect } from 'react'
 import { generators as startingGenerators } from '../assets/generators'
 
@@ -44,12 +45,6 @@ export const GameProvider = ({ children }) => {
       }
     })
   }
-
-  // const gameInterval = () => {
-  //   setInterval(() => {
-  //     setCabbages((currentCabbages) => currentCabbages + 1)
-  //   }, 1000)
-  // }
 
   useEffect(() => {
     setGenerators(startingGenerators)
