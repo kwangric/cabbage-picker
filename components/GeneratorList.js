@@ -3,6 +3,9 @@ import { GameContext } from '../context/GameContext'
 import Image from 'next/image'
 import CabbageIcon from '../public/cabbage.png'
 import generatorListStyles from '../styles/GeneratorList.module.css'
+import Card from '@mui/material/Card'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
 
 const GeneratorList = () => {
   const { generators, buyGenerator } = useContext(GameContext)
@@ -12,13 +15,13 @@ const GeneratorList = () => {
       {generators.map((generator) => {
         if (generator.visible) {
           return (
-            <div
+            <Card
               className={generatorListStyles.generatorCard}
               key={generator.id}
             >
               <div className={generatorListStyles.cardInfo}>
-                <div className={generatorListStyles.cardTitle}>
-                  <p>{generator.name}</p>
+                <div className={generatorListStyles.cardLeft}>
+                  <Typography variant="body">{generator.name}</Typography>
                   <div className={generatorListStyles.cost}>
                     <div className={generatorListStyles.cabbageContainer}>
                       <Image
@@ -28,31 +31,46 @@ const GeneratorList = () => {
                         draggable="false"
                       />
                     </div>
-                    <p className={generatorListStyles.number}>
+                    <Typography
+                      variant="body"
+                      className={generatorListStyles.number}
+                    >
                       {generator.cost}
-                    </p>
+                    </Typography>
                   </div>
-                  <p>
-                    CpS:{' '}
+                  <Typography variant="caption">
+                    Base CpS:{' '}
+                    {generator.id === 1
+                      ? generator.baseIncome.toFixed(1)
+                      : generator.baseIncome}
+                  </Typography>
+                </div>
+                <div className={generatorListStyles.cardRight}>
+                  <Typography variant="body">{`Quantity: ${generator.quantity}`}</Typography>
+                  <br />
+                  <Typography variant="caption">
+                    Total CpS:{' '}
                     {generator.id === 1
                       ? (generator.quantity * generator.baseIncome).toFixed(1)
                       : generator.quantity * generator.baseIncome}
-                  </p>
+                  </Typography>
                 </div>
-                <p>{`Quantity: ${generator.quantity}`}</p>
               </div>
               <div className={generatorListStyles.description}>
-                <p>{`"${generator.description}"`}</p>
-                </div>
+                <Typography variant="caption">
+                  {`"${generator.description}"`}
+                </Typography>
+              </div>
               <div className={generatorListStyles.buttonContainer}>
-                <button
+                <Button
+                  variant="contained"
                   className={generatorListStyles.buyButton}
                   onClick={() => buyGenerator(generator.id)}
                 >
                   Buy
-                </button>
+                </Button>
               </div>
-            </div>
+            </Card>
           )
         }
       })}

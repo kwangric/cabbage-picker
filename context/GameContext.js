@@ -10,7 +10,7 @@ export const GameProvider = ({ children }) => {
   const [generators, setGenerators] = useState([])
 
   const increaseCabbages = (num) => {
-    setCabbages(cabbages + num)
+    setCabbages((currentcabbages) => currentcabbages + num)
     checkGenerators(cabbages + num)
   }
 
@@ -33,8 +33,8 @@ export const GameProvider = ({ children }) => {
     generators.map((generator) => {
       if (generator.id === id) {
         if (generator.cost <= cabbages) {
-          setCabbages(cabbages - generator.cost)
-          setCabbagesPerSecond(cabbagesPerSecond + generator.baseIncome)
+          setCabbages((currentCabbages) => currentCabbages - generator.cost)
+          setCabbagesPerSecond((currentCabbagesPerSecond) => currentCabbagesPerSecond + generator.baseIncome)
           const originalQuantity = generator.quantity
           const originalCost = generator.cost
           generator.quantity = originalQuantity + 1

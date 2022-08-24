@@ -1,11 +1,12 @@
 import patchStyles from '../styles/Patch.module.css'
 import Cabbage from './Cabbage'
+import Box from '@mui/material/Box'
 
 const Patch = () => {
   let rows = [...Array(7).keys()]
 
   return (
-    <div className={patchStyles.patch}>
+    <Box className={patchStyles.patch}>
       {rows.map((row) => {
         return (
           <div className={patchStyles.row} key={row}>
@@ -16,7 +17,7 @@ const Patch = () => {
           </div>
         )
       })}
-    </div>
+    </Box>
   )
 }
 
