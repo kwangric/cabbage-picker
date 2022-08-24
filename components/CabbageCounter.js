@@ -7,7 +7,7 @@ const CabbageCounter = () => {
   return (
     <div>
       <h2>Cabbages: {cabbages.toFixed(0)}</h2>
-      <h3>CpS: {cabbagesPerSecond.toFixed(1)}</h3>
+      <h3>CpS: {cabbagesPerSecond % 1 === 0 ? cabbagesPerSecond.toFixed(0) : cabbagesPerSecond.toFixed(1)}</h3>
     </div>
   )
 }
