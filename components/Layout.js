@@ -5,9 +5,9 @@ import Container from '@mui/material/Container';
 const Layout = ({ children }) => {
   return (
     <>
-      <Container maxWidth="sm">
+      <div className={styles.container}>
         <main className={styles.main}>{children}</main>
-      </Container>
+      </div>
     </>
   )
 }
