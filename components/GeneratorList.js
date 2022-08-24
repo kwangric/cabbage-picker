@@ -53,7 +53,7 @@ const GeneratorList = () => {
                           </div>
                           <Typography
                             variant="body2"
-                            className={generatorListStyles.number}
+                            sx={{margin: "0 0 0 0.25rem"}}
                           >
                             {generator.cost}
                           </Typography>

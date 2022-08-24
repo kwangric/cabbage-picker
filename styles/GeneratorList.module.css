@@ -67,10 +67,6 @@
   height: 20px
 }
 
-.number {
-  margin: 0 0 0 0.5rem;
-}
-
 .cardBottom {
   display: flex;
   flex-direction: row;
