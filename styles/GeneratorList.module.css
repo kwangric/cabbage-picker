@@ -27,6 +27,10 @@
   border-radius: 15px;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .cardInfo {
   display: flex;
   flex-direction: column;

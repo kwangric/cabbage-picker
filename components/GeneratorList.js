@@ -28,7 +28,7 @@ const GeneratorList = () => {
           if (generator.visible) {
             return (
               <div
-                className={generatorListStyles.generatorCard}
+                className={`${generatorListStyles.generatorCard} ${!detailedView ? generatorListStyles.clickable : ''}`}
                 key={generator.id}
               >
                 {detailedView ? (
@@ -112,7 +112,6 @@ const GeneratorList = () => {
                   <div
                     className={generatorListStyles.cardInfo}
                     onClick={() => buyGenerator(generator.id)}
-                    sx={{ cursor: 'pointer' }}
                   >
                     <div className={generatorListStyles.cardTop}>
                       <div className={generatorListStyles.cardLeft}>
