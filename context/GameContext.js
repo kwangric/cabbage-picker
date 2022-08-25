@@ -34,11 +34,27 @@ export const GameProvider = ({ children }) => {
       if (generator.id === id) {
         if (generator.cost <= cabbages) {
           setCabbages((currentCabbages) => currentCabbages - generator.cost)
-          setCabbagesPerSecond((currentCabbagesPerSecond) => currentCabbagesPerSecond + generator.baseIncome)
+          setCabbagesPerSecond(
+            (currentCabbagesPerSecond) =>
+              currentCabbagesPerSecond + generator.baseIncome
+          )
           const originalQuantity = generator.quantity
           const originalCost = generator.cost
-          generator.quantity = originalQuantity + 1
-          generator.cost = (originalCost * 1.15).toFixed(0)
+          // generator.quantity = originalQuantity + 1
+          // generator.cost = (originalCost * 1.15).toFixed(0)
+          setGenerators([
+            ...generators.map((gen) => {
+              if (gen.id != generator.id) {
+                return gen
+              } else {
+                return {
+                  ...generator,
+                  quantity: originalQuantity + 1,
+                  cost: (originalCost * 1.15).toFixed(0),
+                }
+              }
+            }),
+          ])
         }
       }
     })
@@ -50,7 +66,7 @@ export const GameProvider = ({ children }) => {
       JSON.stringify({
         cabbages,
         cabbagesPerSecond,
-        generators
+        generators,
       })
     )
   }
@@ -93,7 +109,7 @@ export const GameProvider = ({ children }) => {
         increaseCabbages,
         buyGenerator,
         saveGame,
-        resetGame
+        resetGame,
       }}
     >
       {children}
