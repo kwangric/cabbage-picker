@@ -14,6 +14,7 @@ import Snackbar from '@mui/material/Snackbar'
 const Game = () => {
   const [open, setOpen] = useState(false)
   const [saveOpen, setSaveOpen] = useState(false)
+  const [secret, setSecret] = useState(false)
   const { saveGame, resetGame } = useContext(GameContext)
 
   const handleClickOpen = () => {
@@ -47,8 +48,8 @@ const Game = () => {
   return (
     <>
       <div className={gameStyles.topBar}>
-        <Typography variant="button" display="block" gutterBottom>
-          Cabbage Picker
+        <Typography variant="button" display="block" gutterBottom onClick={() => setSecret(true)}>
+          {secret ? 'Kah Bah Gee!' : "Cabbage Picker"}
         </Typography>
         <div className={gameStyles.buttons}>
           <Button size="small" onClick={save}>
