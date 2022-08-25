@@ -66,7 +66,7 @@ const GeneratorList = () => {
                         </div>
                       </div>
                       <div className={generatorListStyles.cardRight}>
-                        <Typography variant="body1">{`Quantity: ${generator.quantity}`}</Typography>
+                        <Typography variant="body1">{`x${generator.quantity}`}</Typography>
                       </div>
                     </div>
                     <div className={generatorListStyles.cardBottom}>
@@ -145,7 +145,7 @@ const GeneratorList = () => {
                         </div>
                       </div>
                       <div className={generatorListStyles.cardRight}>
-                        <Typography variant="body1">{`Quantity: ${generator.quantity}`}</Typography>
+                        <Typography variant="body1">{`x${generator.quantity}`}</Typography>
                       </div>
                     </div>
                   </div>
