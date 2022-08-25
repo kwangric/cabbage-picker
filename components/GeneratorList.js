@@ -161,7 +161,6 @@ const GeneratorList = () => {
           <div className={generatorListStyles.options}>
               <Typography variant="overline">Detailed View</Typography>
               <Switch
-                defaultChecked
                 color="default"
                 onChange={handleChange}
                 size="small"
