@@ -6,6 +6,7 @@ export const generators = [
     quantity: 0,
     cost: 15,
     baseIncome: 0.1,
+    action: 'Hire',
     description: "Friendly helpers with a sense of altruism (or community service hours)."
   },
   {
@@ -15,6 +16,7 @@ export const generators = [
     quantity: 0,
     cost: 100,
     baseIncome: 1,
+    action: 'Hire',
     description: "A master at farming."
   },
   {
@@ -24,6 +26,7 @@ export const generators = [
     quantity: 0,
     cost: 1100,
     baseIncome: 8,
+    action: 'Buy',
     description: "Top of the line Don Elke S9 2000s. Double the efficiency, quadruple the carbon emissions."
   },
   {
@@ -33,6 +36,7 @@ export const generators = [
     quantity: 0,
     cost: 12000,
     baseIncome: 47,
+    action: 'Buy',
     description: "The latest farming robot from Farm Inc. Equipped with four arms, a nuclear reactor, and a neutral disposition towards humanity."
   },
   {
@@ -42,6 +46,7 @@ export const generators = [
     quantity: 0,
     cost: 130000,
     baseIncome: 260,
+    action: 'Build',
     description: "Synthetic cabbages carefully designed and constructed in the lab. 9 out of 10 farmers can't tell the difference."
   },
   {
@@ -51,6 +56,7 @@ export const generators = [
     quantity: 0,
     cost: 1400000,
     baseIncome: 1400,
+    action: 'Build',
     description: "Collides cabbages near the speed of light to generate cabbage explosions, with science."
   },
   {
@@ -60,6 +66,7 @@ export const generators = [
     quantity: 0,
     cost: 20000000,
     baseIncome: 7800,
+    action: 'Build',
     description: "Summon cabbages en masse from an unknown dimension. Cabbages are slightly burnt, but still edible."
   },
   {
@@ -69,6 +76,7 @@ export const generators = [
     quantity: 0,
     cost: 330000000,
     baseIncome: 44000,
+    action: 'Create',
     description: "The vast emptiness of space is now simply a playground for your universal cabbage empire."
   },
   {
@@ -78,6 +86,7 @@ export const generators = [
     quantity: 0,
     cost: 5100000000,
     baseIncome: 260000,
+    action: 'Create',
     description: "The escape velocity of the cabbages exceeds the speed of light. You cannot escape."
   },
   {
@@ -87,6 +96,7 @@ export const generators = [
     quantity: 0,
     cost: 75000000000,
     baseIncome: 999999,
+    action: 'Begin',
     description: "Existence is futile."
   },
 ]

@@ -1,7 +1,12 @@
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-end;
-  padding-right: 1rem;
 }
 
 .game {

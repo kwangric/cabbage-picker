@@ -4,6 +4,7 @@ import CabbageCounter from './CabbageCounter'
 import Patch from './Patch'
 import GeneratorList from './GeneratorList'
 import gameStyles from '../styles/Game.module.css'
+import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -12,7 +13,7 @@ import Snackbar from '@mui/material/Snackbar'
 
 const Game = () => {
   const [open, setOpen] = useState(false)
-  const [saveOpen, setSaveOpen] = useState(false);
+  const [saveOpen, setSaveOpen] = useState(false)
   const { saveGame, resetGame } = useContext(GameContext)
 
   const handleClickOpen = () => {
@@ -23,14 +24,14 @@ const Game = () => {
   }
 
   const handleSaveClick = () => {
-    setSaveOpen(true);
+    setSaveOpen(true)
   }
 
   const handleSaveClose = (event, reason) => {
     if (reason === 'clickaway') {
-      return;
+      return
     }
-    setSaveOpen(false);
+    setSaveOpen(false)
   }
 
   const save = () => {
@@ -45,13 +46,18 @@ const Game = () => {
 
   return (
     <>
-      <div className={gameStyles.buttons}>
-        <Button size="small" onClick={save}>
-          Save
-        </Button>
-        <Button size="small" onClick={handleClickOpen}>
-          Reset
-        </Button>
+      <div className={gameStyles.topBar}>
+        <Typography variant="button" display="block" gutterBottom>
+          Cabbage Picker
+        </Typography>
+        <div className={gameStyles.buttons}>
+          <Button size="small" onClick={save}>
+            Save
+          </Button>
+          <Button size="small" onClick={handleClickOpen}>
+            Reset
+          </Button>
+        </div>
       </div>
       <div className={gameStyles.game}>
         <div className={gameStyles.main}>

@@ -105,7 +105,7 @@ const GeneratorList = () => {
                             variant="contained"
                             onClick={() => buyGenerator(generator.id)}
                           >
-                            Buy
+                            {generator.action}
                           </Button>
                         </div>
                       </div>
