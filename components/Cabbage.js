@@ -6,10 +6,11 @@ import { GameContext } from '../context/GameContext'
 
 const Cabbage = () => {
   const [clicked, setClicked] = useState(false)
-  const {increaseCabbages} = useContext(GameContext)
+  const {increaseCabbages, pop} = useContext(GameContext)
 
   const handleClick = () => {
     if (!clicked) {
+      pop()
       increaseCabbages(1)
       setClicked(true)
       setTimeout(function () {

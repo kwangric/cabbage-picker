@@ -78,6 +78,11 @@ export const GameProvider = ({ children }) => {
     setGenerators(startingGenerators)
   }
 
+  const pop = () => {
+    const pop = new Audio('/sounds/pop.mp3')
+    pop.play()
+  }
+
   useEffect(() => {
     let data = JSON.parse(localStorage.getItem('data'))
     if (!data) {
@@ -110,6 +115,7 @@ export const GameProvider = ({ children }) => {
         buyGenerator,
         saveGame,
         resetGame,
+        pop,
       }}
     >
       {children}
