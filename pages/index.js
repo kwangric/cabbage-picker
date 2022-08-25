@@ -15,7 +15,7 @@ export default function Home() {
           .replace(
             /\B(?=(\d{3})+(?!\d))/g,
             ','
-          )} cabbages | Cabbage Picker`}</title>
+          )} ${Math.floor(cabbages) === 1 ? 'cabbage' : 'cabbages'} | Cabbage Picker`}</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:title" content="Cabbage Picker" />
