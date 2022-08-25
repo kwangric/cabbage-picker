@@ -9,7 +9,7 @@ import Switch from '@mui/material/Switch'
 import Box from '@mui/material/Box'
 
 const GeneratorList = () => {
-  const [detailedView, setDetailedView] = useState(true)
+  const [detailedView, setDetailedView] = useState(false)
   const { cabbages, generators, buyGenerator, saveGame } = useContext(GameContext)
 
   const handleChange = () => {
