@@ -1,16 +1,15 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 300px;
   background-color: #453412;
-  border-radius: 20px;
   border: 3px solid #000;
   border-radius: 25px;
   box-shadow: 24;
   outline: 0;
-
 }
 
 .hidden {
@@ -77,6 +76,30 @@
 .buttonContainer {
   display: flex;
   justify-content: flex-end;
+}
+
+.options {
+  width: 250px;
+  display: flex;
+  margin: 0.5rem 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.bottomBar {
+  background-color: #1c1917;
+  position: absolute;
+  bottom: 0;
+  width: 300px;
+  height: 50px;
+  border-left: 3px solid #000;
+  border-right: 3px solid #000;
+  border-top: 3px solid #000;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 
 @media (min-width: 750px) {

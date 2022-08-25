@@ -39,15 +39,38 @@ export const GameProvider = ({ children }) => {
           const originalCost = generator.cost
           generator.quantity = originalQuantity + 1
           generator.cost = (originalCost * 1.15).toFixed(0)
-        } else {
-          alert('Not enough cabbage!')
         }
       }
     })
   }
 
-  useEffect(() => {
+  const saveGame = () => {
+    localStorage.setItem(
+      'data',
+      JSON.stringify({
+        cabbages,
+        cabbagesPerSecond,
+        generators
+      })
+    )
+  }
+
+  const resetGame = () => {
+    localStorage.clear()
+    setCabbages(0)
+    setCabbagesPerSecond(0)
     setGenerators(startingGenerators)
+  }
+
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem('data'))
+    if (!data) {
+      setGenerators(startingGenerators)
+    } else {
+      setCabbages(data.cabbages)
+      setCabbagesPerSecond(data.cabbagesPerSecond)
+      setGenerators(data.generators)
+    }
   }, [])
 
   useEffect(() => {
@@ -69,6 +92,8 @@ export const GameProvider = ({ children }) => {
         generators,
         increaseCabbages,
         buyGenerator,
+        saveGame,
+        resetGame
       }}
     >
       {children}

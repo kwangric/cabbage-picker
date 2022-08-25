@@ -10,7 +10,7 @@ import Box from '@mui/material/Box'
 
 const GeneratorList = () => {
   const [detailedView, setDetailedView] = useState(true)
-  const { generators, buyGenerator } = useContext(GameContext)
+  const { generators, buyGenerator, saveGame } = useContext(GameContext)
 
   const handleChange = () => {
     setDetailedView((current) => !current)
@@ -24,12 +24,18 @@ const GeneratorList = () => {
           : `${generatorListStyles.container} ${generatorListStyles.hidden}`
       }
     >
-      <Box component="div" sx={{ overflow: 'scroll' }} className={generatorListStyles.generators}>
+      <Box
+        component="div"
+        sx={{ overflow: 'scroll' }}
+        className={generatorListStyles.generators}
+      >
         {generators.map((generator) => {
           if (generator.visible) {
             return (
               <div
-                className={`${generatorListStyles.generatorCard} ${!detailedView ? generatorListStyles.clickable : ''}`}
+                className={`${generatorListStyles.generatorCard} ${
+                  !detailedView ? generatorListStyles.clickable : ''
+                }`}
                 key={generator.id}
               >
                 {detailedView ? (
@@ -53,7 +59,7 @@ const GeneratorList = () => {
                           </div>
                           <Typography
                             variant="body2"
-                            sx={{margin: "0 0 0 0.25rem"}}
+                            sx={{ margin: '0 0 0 0.25rem' }}
                           >
                             {generator.cost}
                           </Typography>
@@ -97,7 +103,6 @@ const GeneratorList = () => {
                           <Button
                             size="small"
                             variant="contained"
-                            className={generatorListStyles.buyButton}
                             onClick={() => buyGenerator(generator.id)}
                           >
                             Buy
@@ -133,7 +138,7 @@ const GeneratorList = () => {
                           </div>
                           <Typography
                             variant="body2"
-                            className={generatorListStyles.number}
+                            sx={{ margin: '0 0 0 0.25rem' }}
                           >
                             {generator.cost}
                           </Typography>
@@ -152,16 +157,18 @@ const GeneratorList = () => {
       </Box>
       {generators.filter((generator) => generator.visible === true).length >
       0 ? (
-        <div>
-          <Typography variant="overline">Detailed View</Typography>
-          <Switch
-            defaultChecked
-            color="default"
-            onChange={handleChange}
-            size="small"
-            sx={{ marginTop: '1rem', marginBottom: '1rem' }}
-          />
-        </div>
+        <>
+          <div className={generatorListStyles.options}>
+              <Typography variant="overline">Detailed View</Typography>
+              <Switch
+                defaultChecked
+                color="default"
+                onChange={handleChange}
+                size="small"
+              />
+          </div>
+          <div className={generatorListStyles.bottomBar} />
+        </>
       ) : (
         <></>
       )}
