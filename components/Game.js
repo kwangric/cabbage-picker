@@ -8,9 +8,11 @@ import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogTitle from '@mui/material/DialogTitle'
+import Snackbar from '@mui/material/Snackbar'
 
 const Game = () => {
   const [open, setOpen] = useState(false)
+  const [saveOpen, setSaveOpen] = useState(false);
   const { saveGame, resetGame } = useContext(GameContext)
 
   const handleClickOpen = () => {
@@ -18,6 +20,22 @@ const Game = () => {
   }
   const handleClose = () => {
     setOpen(false)
+  }
+
+  const handleSaveClick = () => {
+    setSaveOpen(true);
+  }
+
+  const handleSaveClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSaveOpen(false);
+  }
+
+  const save = () => {
+    saveGame()
+    handleSaveClick()
   }
 
   const reset = () => {
@@ -28,7 +46,7 @@ const Game = () => {
   return (
     <>
       <div className={gameStyles.buttons}>
-        <Button size="small" onClick={() => saveGame()}>
+        <Button size="small" onClick={save}>
           Save
         </Button>
         <Button size="small" onClick={handleClickOpen}>
@@ -51,6 +69,12 @@ const Game = () => {
           <Button onClick={handleClose}>No</Button>
         </DialogActions>
       </Dialog>
+      <Snackbar
+        open={saveOpen}
+        autoHideDuration={3000}
+        onClose={handleSaveClose}
+        message="Game saved"
+      />
     </>
   )
 }

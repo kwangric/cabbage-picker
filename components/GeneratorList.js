@@ -10,7 +10,7 @@ import Box from '@mui/material/Box'
 
 const GeneratorList = () => {
   const [detailedView, setDetailedView] = useState(true)
-  const { generators, buyGenerator, saveGame } = useContext(GameContext)
+  const { cabbages, generators, buyGenerator, saveGame } = useContext(GameContext)
 
   const handleChange = () => {
     setDetailedView((current) => !current)
@@ -35,7 +35,7 @@ const GeneratorList = () => {
               <div
                 className={`${generatorListStyles.generatorCard} ${
                   !detailedView ? generatorListStyles.clickable : ''
-                }`}
+                } ${generator.cost > cabbages ? generatorListStyles.unbuyable : ''}`}
                 key={generator.id}
               >
                 {detailedView ? (
