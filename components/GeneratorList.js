@@ -33,9 +33,7 @@ const GeneratorList = () => {
           if (generator.visible) {
             return (
               <div
-                className={`${generatorListStyles.generatorCard} ${
-                  !detailedView ? generatorListStyles.clickable : ''
-                } ${generator.cost > cabbages ? generatorListStyles.unbuyable : ''}`}
+                className={`${generatorListStyles.generatorCard} ${generator.cost > cabbages ? generatorListStyles.unbuyable : ''}`}
                 key={generator.id}
               >
                 {detailedView ? (
@@ -117,10 +115,9 @@ const GeneratorList = () => {
                 ) : (
                   <div
                     className={generatorListStyles.cardInfo}
-                    onClick={() => buyGenerator(generator.id)}
                   >
                     <div className={generatorListStyles.cardTop}>
-                      <div className={generatorListStyles.cardLeft}>
+                      <div className={generatorListStyles.cardLeftSimple}>
                         <Typography
                           variant="body1"
                           sx={{ marginBottom: '5px' }}
@@ -144,8 +141,16 @@ const GeneratorList = () => {
                           </Typography>
                         </div>
                       </div>
-                      <div className={generatorListStyles.cardRight}>
+                      <div className={generatorListStyles.cardRightSimple}>
                         <Typography variant="body1">{`x${generator.quantity}`}</Typography>
+                        <Button
+                            size="small"
+                            sx={{padding: "0", marginTop: "10px"}}
+                            variant="contained"
+                            onClick={() => buyGenerator(generator.id)}
+                          >
+                            {generator.action}
+                          </Button>
                       </div>
                     </div>
                   </div>

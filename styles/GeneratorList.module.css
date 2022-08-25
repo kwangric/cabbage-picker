@@ -77,6 +77,13 @@
   align-items: center;
 }
 
+.cardRightSimple {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .buttonContainer {
   display: flex;
   justify-content: flex-end;
