@@ -8,6 +8,11 @@ export default function Home() {
       <Head>
         <title>Cabbage Picker</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:title" content="Cabbage Picker" />
+        <meta name="description" content="A simple cabbage picking game."/>
+        <meta property="og:description" content="A simple cabbage picking game." />
+        <meta property="og:type" content="article" />
       </Head>
       <Game />
     </div>
