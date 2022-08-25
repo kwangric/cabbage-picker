@@ -10,12 +10,20 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{`${Math.floor(cabbages)} cabbages | Cabbage Picker`}</title>
+        <title>{`${Math.floor(cabbages)
+          .toString()
+          .replace(
+            /\B(?=(\d{3})+(?!\d))/g,
+            ','
+          )} cabbages | Cabbage Picker`}</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:title" content="Cabbage Picker" />
-        <meta name="description" content="A simple cabbage picking game."/>
-        <meta property="og:description" content="A simple cabbage picking game." />
+        <meta name="description" content="A simple cabbage picking game." />
+        <meta
+          property="og:description"
+          content="A simple cabbage picking game."
+        />
         <meta property="og:type" content="article" />
       </Head>
       <Game />
