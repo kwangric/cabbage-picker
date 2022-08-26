@@ -57,16 +57,6 @@ const Game = () => {
         >
           {secret ? 'Kah Bah Gee!' : 'Cabbage Picker'}
         </Typography>
-        <Button size="small">
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/kwangric/cabbage-picker"
-              underline="none"
-            >
-              Source Code
-            </Link>
-          </Button>
         <div className={gameStyles.buttons}>
           <Button size="small" onClick={save}>
             Save
@@ -84,6 +74,18 @@ const Game = () => {
         <div>
           <GeneratorList />
         </div>
+      </div>
+      <div className={gameStyles.bottomBar}>
+        <Button size="small">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/kwangric/cabbage-picker"
+            underline="none"
+          >
+            Source Code
+          </Link>
+        </Button>
       </div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{'Are you sure?'}</DialogTitle>
