@@ -5,17 +5,12 @@ import { GameContext } from '../context/GameContext'
 import styles from '../styles/Game.module.css'
 
 export default function Home() {
-  const { cabbages } = useContext(GameContext)
+  const { cabbages, commify } = useContext(GameContext)
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>{`${Math.floor(cabbages)
-          .toString()
-          .replace(
-            /\B(?=(\d{3})+(?!\d))/g,
-            ','
-          )} ${Math.floor(cabbages) === 1 ? 'cabbage' : 'cabbages'} | Cabbage Picker`}</title>
+        <title>{`${commify(Math.floor(cabbages))} ${Math.floor(cabbages) === 1 ? 'cabbage' : 'cabbages'} | Cabbage Picker`}</title>
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:title" content="Cabbage Picker" />

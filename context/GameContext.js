@@ -78,6 +78,10 @@ export const GameProvider = ({ children }) => {
     setGenerators(startingGenerators)
   }
 
+  const commify = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
   const pop = () => {
     const pop = new Audio('/sounds/pop.mp3')
     pop.play()
@@ -115,6 +119,7 @@ export const GameProvider = ({ children }) => {
         buyGenerator,
         saveGame,
         resetGame,
+        commify,
         pop,
       }}
     >

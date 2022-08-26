@@ -6,12 +6,12 @@ import cabbageCounterStyles from '../styles/CabbageCounter.module.css'
 
 
 const CabbageCounter = () => {
-  const { cabbages, cabbagesPerSecond } = useContext(GameContext)
+  const { cabbages, cabbagesPerSecond, commify } = useContext(GameContext)
 
   return (
     <Box className={cabbageCounterStyles.counter}>
-      <Typography variant="h5">Cabbages: {Math.floor(cabbages)}</Typography>
-      <Typography variant="subtitle1">{`(${cabbagesPerSecond % 1 === 0 ? cabbagesPerSecond.toFixed(0) : cabbagesPerSecond.toFixed(1)} per second)`}</Typography>
+      <Typography variant="h5">Cabbages: {commify(Math.floor(cabbages))}</Typography>
+      <Typography variant="subtitle1">{`(${commify(cabbagesPerSecond % 1 === 0 ? cabbagesPerSecond.toFixed(0) : cabbagesPerSecond.toFixed(1))} per second)`}</Typography>
     </Box>
   )
 }

@@ -10,7 +10,8 @@ import Box from '@mui/material/Box'
 
 const GeneratorList = () => {
   const [detailedView, setDetailedView] = useState(false)
-  const { cabbages, generators, buyGenerator, saveGame } = useContext(GameContext)
+  const { cabbages, generators, buyGenerator, commify } =
+    useContext(GameContext)
 
   const handleChange = () => {
     setDetailedView((current) => !current)
@@ -33,7 +34,9 @@ const GeneratorList = () => {
           if (generator.visible) {
             return (
               <div
-                className={`${generatorListStyles.generatorCard} ${generator.cost > cabbages ? generatorListStyles.unbuyable : ''}`}
+                className={`${generatorListStyles.generatorCard} ${
+                  generator.cost > cabbages ? generatorListStyles.unbuyable : ''
+                }`}
                 key={generator.id}
               >
                 {detailedView ? (
@@ -59,7 +62,7 @@ const GeneratorList = () => {
                             variant="body2"
                             sx={{ margin: '0 0 0 0.25rem' }}
                           >
-                            {generator.cost}
+                            {commify(generator.cost)}
                           </Typography>
                         </div>
                       </div>
@@ -73,27 +76,28 @@ const GeneratorList = () => {
                           className={generatorListStyles.cps}
                           variant="caption"
                         >
-                          {`Each: ${
+                          {`Each: ${commify(
                             generator.id === 1
                               ? generator.baseIncome.toFixed(1)
                               : generator.baseIncome
-                          } CpS`}
+                          )} CpS`}
                         </Typography>
                         <Typography
                           className={generatorListStyles.cps}
                           variant="caption"
                         >
-                          {`Total: ${
+                          {`Total: ${commify(
                             generator.id === 1 &&
-                            (generator.quantity * generator.baseIncome) % 1 !==
-                              0
+                              (generator.quantity * generator.baseIncome) %
+                                1 !==
+                                0
                               ? (
                                   generator.quantity * generator.baseIncome
                                 ).toFixed(1)
                               : (
                                   generator.quantity * generator.baseIncome
                                 ).toFixed(0)
-                          } CpS`}
+                          )} CpS`}
                         </Typography>
                       </div>
                       <div className={generatorListStyles.cardRight}>
@@ -113,9 +117,7 @@ const GeneratorList = () => {
                     </Typography>
                   </div>
                 ) : (
-                  <div
-                    className={generatorListStyles.cardInfo}
-                  >
+                  <div className={generatorListStyles.cardInfo}>
                     <div className={generatorListStyles.cardTop}>
                       <div className={generatorListStyles.cardLeftSimple}>
                         <Typography
@@ -137,20 +139,20 @@ const GeneratorList = () => {
                             variant="body2"
                             sx={{ margin: '0 0 0 0.25rem' }}
                           >
-                            {generator.cost}
+                            {commify(generator.cost)}
                           </Typography>
                         </div>
                       </div>
                       <div className={generatorListStyles.cardRightSimple}>
                         <Typography variant="body1">{`x${generator.quantity}`}</Typography>
                         <Button
-                            size="small"
-                            sx={{padding: "0", marginTop: "10px"}}
-                            variant="contained"
-                            onClick={() => buyGenerator(generator.id)}
-                          >
-                            {generator.action}
-                          </Button>
+                          size="small"
+                          sx={{ padding: '0', marginTop: '10px' }}
+                          variant="contained"
+                          onClick={() => buyGenerator(generator.id)}
+                        >
+                          {generator.action}
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -164,12 +166,8 @@ const GeneratorList = () => {
       0 ? (
         <>
           <div className={generatorListStyles.options}>
-              <Typography variant="overline">Detailed View</Typography>
-              <Switch
-                color="default"
-                onChange={handleChange}
-                size="small"
-              />
+            <Typography variant="overline">Detailed View</Typography>
+            <Switch color="default" onChange={handleChange} size="small" />
           </div>
           <div className={generatorListStyles.bottomBar} />
         </>
