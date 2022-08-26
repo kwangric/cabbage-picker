@@ -5,6 +5,7 @@ import Patch from './Patch'
 import GeneratorList from './GeneratorList'
 import gameStyles from '../styles/Game.module.css'
 import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -48,9 +49,24 @@ const Game = () => {
   return (
     <>
       <div className={gameStyles.topBar}>
-        <Typography variant="button" display="block" gutterBottom onClick={() => setSecret(true)}>
-          {secret ? 'Kah Bah Gee!' : "Cabbage Picker"}
+        <Typography
+          variant="button"
+          display="block"
+          gutterBottom
+          onClick={() => setSecret(true)}
+        >
+          {secret ? 'Kah Bah Gee!' : 'Cabbage Picker'}
         </Typography>
+        <Button size="small">
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/kwangric/cabbage-picker"
+              underline="none"
+            >
+              Source Code
+            </Link>
+          </Button>
         <div className={gameStyles.buttons}>
           <Button size="small" onClick={save}>
             Save
